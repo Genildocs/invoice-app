@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-league-spartan: 'League Spartan', sans-serif;
+  --color-primary-light: #7c5dfa;
+  --color-primary: #9277ff;
+  --color-primary-dark: #1e2139;
+  --color-primary-darker: #252945;
+
+  --color-secondary-light: #dfe3fa;
+  --color-secondary: #888eb0;
+  --color-secondary-dark: #7e88c3;
+
+  --color-neutral-darkest: #0c0e16;
+  --color-neutral-darker: #141625;
+
+  --color-danger: #ec5757;
+  --color-danger-light: #ff9797;
+
+  --color-background-light: #f8f8fb;
+  --color-green-status: #33d69f;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html,
+body,
+#root {
+  @apply h-full font-league-spartan;
+}
+
+body {
+  @apply dark:!bg-neutral-darkest transition-colors;
+}
+
+button {
+  @apply cursor-pointer;
+}
+
+.listDropdown > li {
+  @apply [&:nth-child(-n+2)]:mb-3;
+}

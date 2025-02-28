@@ -1,0 +1,1 @@
+- Evitar mutação de dados dentro do useState. Sendo necessario criar uma copia do array original.
