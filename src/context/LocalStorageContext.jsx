@@ -12,14 +12,17 @@ const LocalStorageProvider = ({ children }) => {
     return storedInvoices ? JSON.parse(storedInvoices) : [...data];
   });
 
-  // Sempre que 'invoices' mudar, salvar no LocalStorage
+  //Para filtragem sem alteração do original salvo no localStorage
+  const [filterInvoices, setFilterInvoices] = useState(invoices);
 
+  // Sempre que 'invoices' mudar, salvar no LocalStorage
   useEffect(() => {
     localStorage.setItem('invoices', JSON.stringify(invoices));
   }, [invoices]);
 
   return (
-    <LocalStorageContext.Provider value={{ invoices, setInvoices }}>
+    <LocalStorageContext.Provider
+      value={{ invoices, setInvoices, filterInvoices, setFilterInvoices }}>
       {children}
     </LocalStorageContext.Provider>
   );
