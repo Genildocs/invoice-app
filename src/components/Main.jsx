@@ -7,6 +7,7 @@ import { IoMdArrowDropup } from 'react-icons/io';
 import { IoAdd } from 'react-icons/io5';
 import InfoNoInvoice from './InfoNoInvoice';
 import Invoices from './Invoices';
+import { Link } from 'react-router';
 export default function Main() {
   const { invoices, filterInvoices, setFilterInvoices } =
     useContext(LocalStorageContext);
@@ -150,14 +151,16 @@ export default function Main() {
             </motion.div>
           </motion.div>
           <div>
-            <a
-              href="/view"
-              className="bg-primary-light w-20 h-11 text-[15px] tracking-[-0.25px] font-bold flex items-center gap-2 p-1 rounded-[24px]">
+            <Link
+              to="/view"
+              className="bg-primary-light w-20 h-11 text-[15px]
+              tracking-[-0.25px] font-bold flex items-center gap-2 p-1
+              rounded-[24px]">
               <div className="bg-white h-8 w-8 rounded-full flex items-center justify-center">
                 <IoAdd />
               </div>
               <span className="dark:text-white">New</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
