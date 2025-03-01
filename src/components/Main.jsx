@@ -5,7 +5,9 @@ import { motion } from 'motion/react';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { IoMdArrowDropup } from 'react-icons/io';
 import { IoAdd } from 'react-icons/io5';
-export default function Main({ children }) {
+import InfoNoInvoice from './InfoNoInvoice';
+import Invoices from './Invoices';
+export default function Main() {
   const { invoices, filterInvoices, setFilterInvoices } =
     useContext(LocalStorageContext);
   const [dropdownFilter, setDropdownFilter] = useState(false);
@@ -148,16 +150,19 @@ export default function Main({ children }) {
             </motion.div>
           </motion.div>
           <div>
-            <button className="bg-primary-light w-20 h-11 text-[15px] tracking-[-0.25px] font-bold flex items-center gap-2 p-1 rounded-[24px]">
+            <a
+              href="/view"
+              className="bg-primary-light w-20 h-11 text-[15px] tracking-[-0.25px] font-bold flex items-center gap-2 p-1 rounded-[24px]">
               <div className="bg-white h-8 w-8 rounded-full flex items-center justify-center">
                 <IoAdd />
               </div>
               <span className="dark:text-white">New</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
-      {children}
+      <InfoNoInvoice />
+      <Invoices />
     </main>
   );
 }
