@@ -7,6 +7,7 @@ import Main from './components/Main';
 import InfoNoInvoice from './components/InfoNoInvoice';
 import Invoices from './components/Invoices';
 import ViewInvoice from './pages/ViewInvoice';
+import CreateInvoice from './pages/CreateInvoice';
 export default function App() {
   return (
     <LocalStorageProvider>
@@ -15,7 +16,8 @@ export default function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="view" element={<ViewInvoice />} />
+            <Route path="view-invoice/:id" element={<ViewInvoice />} />
+            <Route path="create-invoice" element={<CreateInvoice />} />
           </Routes>
         </Router>
       </ThemeProvider>

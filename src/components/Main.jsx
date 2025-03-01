@@ -152,7 +152,7 @@ export default function Main() {
           </motion.div>
           <div>
             <Link
-              to="/view"
+              to="/create-invoice"
               className="bg-primary-light w-20 h-11 text-[15px]
               tracking-[-0.25px] font-bold flex items-center gap-2 p-1
               rounded-[24px]">
