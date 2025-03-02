@@ -40,3 +40,11 @@ button {
 .listDropdown > li {
   @apply [&:nth-child(-n+2)]:mb-3;
 }
+
+.headingS {
+  @apply font-bold text-[15px] tracking-[-0.25px];
+}
+
+.text-field {
+  @apply text-sm text-secondary-dark tracking-[-0.1px] font-medium;
+}
