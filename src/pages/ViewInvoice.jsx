@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Link, useParams } from 'react-router';
 import { AiOutlineCaretLeft } from 'react-icons/ai';
 import { LocalStorageContext } from '../context/LocalStorageContext';
+import BtnBack from "../components/ui/BtnBack.jsx";
 
 export default function ViewInvoice() {
   const { filterInvoices } = useContext(LocalStorageContext);
@@ -39,12 +40,7 @@ export default function ViewInvoice() {
     <section className="flex flex-col justify-between md:px-12 lg:px-44 pt-5 bg-secondary-light dark:bg-neutral-darkest min-h-full">
       <div className="px-6 ">
         <div>
-          <Link to="/" className="flex items-center">
-            <AiOutlineCaretLeft className=" fill-primary" />
-            <span className="text-[15px] dark:text-white font-bold tracking-[-0.25px]">
-              Go back
-            </span>
-          </Link>
+          <BtnBack />
         </div>
         <div className="flex flex-col items-center mt-5">
           <div className="bg-white dark:bg-primary-dark dark:text-white w-[20.5rem] p-5 rounded-lg flex items-center justify-between">

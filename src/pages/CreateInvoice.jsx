@@ -1,25 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { AiOutlineCaretLeft } from 'react-icons/ai';
-import FormInvoices from '../components/FormInvoices';
+import FormInvoices from '../components/form/FormInvoices.jsx';
+import BtnBack from '../components/ui/BtnBack.jsx';
 
 export default function CreateInvoice() {
   return (
     <section className="flex flex-col justify-between md:px-12 lg:px-44 pt-5 bg-white dark:bg-neutral-darkest min-h-full">
       <div className="px-6">
         <div>
-          <Link to="/" className="flex items-center">
-            <AiOutlineCaretLeft className=" fill-primary" />
-            <span className="text-[15px] dark:text-white font-bold tracking-[-0.25px]">
-              Go back
-            </span>
-          </Link>
+          <BtnBack />
         </div>
         <div className="mt-3">
           <h2 className=" text-4xl font-bold tracking-[-0.5px] dark:text-white">
             New Invoice
           </h2>
-
           <FormInvoices />
         </div>
       </div>

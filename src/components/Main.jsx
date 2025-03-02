@@ -161,7 +161,7 @@ export default function Main() {
                 <Link
                   to="/new-invoice"
                   className="text-[15px] tracking-[-0.25px] font-bold flex items-center gap-2 p-1">
-                  <div className="bg-white h-8 w-8 rounded-full flex items-center justify-center">
+                  <div className="bg-white size-8 rounded-full flex items-center justify-center">
                     <IoAdd />
                   </div>
                   <span className="dark:text-white">New</span>

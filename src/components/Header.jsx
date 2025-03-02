@@ -14,21 +14,19 @@ export default function Header() {
       <div className="flex justify-between items-center h-full gap-5">
         <div className="flex items-center justify-between w-full">
           <div className="bg-primary-light h-20 w-20 rounded-r-3xl flex items-center justify-center">
-            <img src={Logo} alt="logo" className="w-7 h-7" />
+            <img src={Logo} alt="logo" className="size-7" />
           </div>
 
-          <button
-            className="group h-5 w-5 cursor-pointer"
-            onClick={toggleTheme}>
+          <button className="group size-5 cursor-pointer" onClick={toggleTheme}>
             <IoMdMoon
               className={cn(
-                'h-full w-full fill-secondary-dark group-hover:fill-secondary-light',
+                'size-full fill-secondary-dark group-hover:fill-secondary-light',
                 theme === 'dark' && 'hidden'
               )}
             />
             <IoMdSunny
               className={cn(
-                'h-full w-full fill-secondary-dark group-hover:fill-secondary-light',
+                'size-full fill-secondary-dark group-hover:fill-secondary-light',
                 theme === 'light' && 'hidden'
               )}
             />

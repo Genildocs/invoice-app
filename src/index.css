@@ -49,3 +49,7 @@ button {
 .text-field {
   @apply text-sm text-secondary-dark tracking-[-0.1px] font-medium;
 }
+
+.inputStyle {
+  @apply w-full bg-transparent  rounded-md  border  border-[#DFE3FA] py-2 px-4 transition focus:outline-none focus:border-primary active:border-primary disabled:cursor-default placeholder:font-bold placeholder:text-sm placeholder:text-[15px] placeholder:tracking-[-0.25px];
+}
