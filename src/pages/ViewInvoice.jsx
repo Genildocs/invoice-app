@@ -10,10 +10,27 @@ export default function ViewInvoice() {
   let params = useParams();
 
   useEffect(() => {
-    const findInvoice = filterInvoices.find(
+    let findInvoice = filterInvoices.find(
       (item) => item.id === params.id.toUpperCase()
     );
 
+    findInvoice = {
+      ...findInvoice,
+      createdAt: new Date(findInvoice.createdAt).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }),
+      paymentDue:
+        'Due ' +
+        new Date(findInvoice.paymentDue).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          timeZone: 'UTC',
+        }),
+    };
     setViewInvoice(findInvoice || {});
   }, [params.id, filterInvoices]);
 
@@ -53,14 +70,89 @@ export default function ViewInvoice() {
         <div className="bg-white dark:bg-primary-dark p-5 w-[20.5rem] rounded-lg mt-3">
           <span className="headingS">#{viewInvoice.id}</span>
           <p className="text-field">{viewInvoice.description}</p>
-          {viewInvoice.clientAddress !== undefined ? (
+          {viewInvoice.senderAddress !== undefined ? (
             <div className="my-5">
-              <p className="text-field">{viewInvoice.clientAddress.street}</p>
-              <p className="text-field">{viewInvoice.clientAddress.city}</p>
-              <p className="text-field">{viewInvoice.clientAddress.postCode}</p>
-              <p className="text-field">{viewInvoice.clientAddress.country}</p>
+              <p className="text-field">{viewInvoice.senderAddress.street}</p>
+              <p className="text-field">{viewInvoice.senderAddress.city}</p>
+              <p className="text-field">{viewInvoice.senderAddress.postCode}</p>
+              <p className="text-field">{viewInvoice.senderAddress.country}</p>
             </div>
-          ) : null}
+          ) : (
+            <div>
+              <p className="text-field">No client address</p>
+            </div>
+          )}
+          <div className="grid grid-cols-2">
+            <div>
+              <p className="text-field">Invoice Date</p>
+              <span className="headingS">{viewInvoice.createdAt}</span>
+            </div>
+            <div className="col-[1/2]">
+              <p className="text-field">Payment Due</p>
+              <span className="headingS">{viewInvoice.paymentDue}</span>
+            </div>
+            <div className="col-[2/-1] row-[1/3]">
+              <p className="text-field">Bill To</p>
+              <span className="headingS">{viewInvoice.clientName}</span>
+              {viewInvoice.clientAddress !== undefined ? (
+                <div>
+                  <p className="text-field">
+                    {viewInvoice.clientAddress.street}
+                  </p>
+                  <p className="text-field">{viewInvoice.clientAddress.city}</p>
+                  <p className="text-field">
+                    {viewInvoice.clientAddress.postCode}
+                  </p>
+                  <p className="text-field">
+                    {viewInvoice.clientAddress.country}
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <p className="text-field">No client address</p>
+                </div>
+              )}
+            </div>
+          </div>
+          <div>
+            <p className="text-field">Sent to</p>
+            <span className="headingS">{viewInvoice.clientEmail}</span>
+          </div>
+          <div className="mt-5">
+            <div className="bg-secondary-light p-3 rounded-t-lg">
+              <div>
+                {viewInvoice.items &&
+                  viewInvoice.items.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between">
+                      <div>
+                        <p className="font-bold text-[15px] tracking-[-0.25px]">
+                          {item.name}
+                        </p>
+                        <span className="font-bold text-[15px] tracking-[-0.25px] text-secondary-dark">
+                          {item.quantity} x £{' '}
+                        </span>
+                        <span className="font-bold text-[15px] tracking-[-0.25px] text-secondary-dark">
+                          {item.price}
+                        </span>
+                      </div>
+                      <span className="font-bold text-[15px] tracking-[-0.25px]">
+                        £ {item.total}
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className="bg-primary-dark p-3 rounded-b-lg flex items-center justify-between">
+              <p className="text-sm font-medium tracking-[-0.1px] text-white">
+                Grand Total
+              </p>
+              <span className="font-bold text-2xl tracking-[-0.5px] text-white">
+                £ {viewInvoice.total}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
