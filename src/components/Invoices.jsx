@@ -13,7 +13,7 @@ export default function Invoices() {
           <Link to={`view-invoice/${invoice['id'].toLowerCase()}`} key={index}>
             <motion.li
               className={cn(
-                'bg-white dark:bg-primary-dark dark:text-white w-[20.5rem] p-5 rounded-lg flex justify-between border-[2px] border-solid'
+                'bg-white dark:bg-primary-dark dark:text-white w-[20.5rem] lg:w-[45rem] p-5 rounded-lg flex justify-between border-[2px] border-solid'
               )}
               style={{ borderColor: 'rgb(255,255,255,0)' }}
               whileHover={{ borderColor: 'rgb(124,93,250,0.9)' }}>

@@ -19,6 +19,7 @@
 
   --color-background-light: #f8f8fb;
   --color-green-status: #33d69f;
+  --color-tertiary: #f9fafe;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
