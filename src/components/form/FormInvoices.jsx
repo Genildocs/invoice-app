@@ -12,8 +12,11 @@ export default function FormInvoices() {
           streetFrom: '',
           streetTo: '',
           city1: '',
+          city2: '',
           postCode1: '',
+          postCode2: '',
           country1: '',
+          country2: '',
           date: new Date().toISOString().split('T')[0],
         }}
         validationSchema={Yup.object({
@@ -35,8 +38,10 @@ export default function FormInvoices() {
         }}>
         <Form>
           <div className="mt-5">
-            <span className="inline-block mt-2">Bill From</span>
-            <div>
+            <span className="inline-block mt-2 mb-5 headingS text-primary-light">
+              Bill From
+            </span>
+            <div className="mb-2">
               <label
                 htmlFor="streetFrom"
                 className="text-field mb-2 inline-block">
@@ -54,7 +59,7 @@ export default function FormInvoices() {
                 className="mt-[10px] text-sm text-red-500"
               />
             </div>
-            <div className="flex justify-between gap-5">
+            <div className="flex justify-between gap-5 mb-2">
               <div>
                 <label htmlFor="city1" className="text-field mb-2 inline-block">
                   City
@@ -71,7 +76,7 @@ export default function FormInvoices() {
                   className="mt-[10px] text-sm text-red-500"
                 />
               </div>
-              <div>
+              <div className="mb-2">
                 <label
                   htmlFor="postCode1"
                   className="text-field mb-2 inline-block">
@@ -110,12 +115,14 @@ export default function FormInvoices() {
             </div>
           </div>
           <div className="mt-5">
-            <span className="inline-block mt-2">Bill To</span>
-            <div>
+            <span className="inline-block mt-2 mb-5 headingS text-primary-light">
+              Bill To
+            </span>
+            <div className="mb-2">
               <label
                 htmlFor="firstName"
                 className="text-field mb-2 inline-block">
-                First Name
+                Client’s Name
               </label>
               <Field
                 name="firstName"
@@ -125,6 +132,94 @@ export default function FormInvoices() {
               />
               <ErrorMessage
                 name="firstName"
+                component="span"
+                className="mt-[10px] text-sm text-red-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label htmlFor="email" className="text-field mb-2 inline-block">
+                Client’s Email
+              </label>
+              <Field
+                name="email"
+                type="text"
+                placeholder="xkTJF@example.com"
+                className="headingS inputStyle"
+              />
+              <ErrorMessage
+                name="email"
+                component="span"
+                className="mt-[10px] text-sm text-red-500"
+              />
+            </div>
+            <div className="mb-2">
+              <label
+                htmlFor="streetTo"
+                className="text-field mb-2 inline-block">
+                Street Address
+              </label>
+              <Field
+                name="streetTo"
+                type="text"
+                placeholder="Street Address"
+                className="headingS inputStyle"
+              />
+              <ErrorMessage
+                name="streetTo"
+                component="span"
+                className="mt-[10px] text-sm text-red-500"
+              />
+            </div>
+            <div className="flex justify-between gap-5 mb-2">
+              <div>
+                <label htmlFor="city2" className="text-field mb-2 inline-block">
+                  City
+                </label>
+                <Field
+                  name="city2"
+                  type="text"
+                  placeholder="City"
+                  className="headingS inputStyle"
+                />
+                <ErrorMessage
+                  name="city2"
+                  component="span"
+                  className="mt-[10px] text-sm text-red-500"
+                />
+              </div>
+              <div className="mb-2">
+                <label
+                  htmlFor="postCode2"
+                  className="text-field mb-2 inline-block">
+                  Post Code
+                </label>
+                <Field
+                  name="postCode2"
+                  type="text"
+                  placeholder="Post Code"
+                  className="headingS inputStyle"
+                />
+                <ErrorMessage
+                  name="postCode2"
+                  component="span"
+                  className="mt-[10px] text-sm text-red-500"
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="country2"
+                className="text-field mb-2 inline-block">
+                Country
+              </label>
+              <Field
+                name="country2"
+                type="text"
+                placeholder="Country"
+                className="headingS inputStyle"
+              />
+              <ErrorMessage
+                name="country2"
                 component="span"
                 className="mt-[10px] text-sm text-red-500"
               />
