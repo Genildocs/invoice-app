@@ -1,7 +1,7 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --font-league-spartan: 'League Spartan', sans-serif;
+  --font-league-spartan: "League Spartan", sans-serif;
   --color-primary-light: #7c5dfa;
   --color-primary: #9277ff;
   --color-primary-dark: #1e2139;
@@ -31,7 +31,7 @@ body,
 }
 
 body {
-  @apply dark:!bg-neutral-darkest transition-colors;
+  @apply transition-colors dark:!bg-neutral-darkest;
 }
 
 button {
@@ -43,13 +43,13 @@ button {
 }
 
 .headingS {
-  @apply font-bold text-[15px] tracking-[-0.25px];
+  @apply text-[15px] font-bold tracking-[-0.25px];
 }
 
 .text-field {
-  @apply text-sm text-secondary-dark tracking-[-0.1px] font-medium;
+  @apply text-sm font-medium tracking-[-0.1px] text-secondary-dark;
 }
 
 .inputStyle {
-  @apply w-full bg-transparent  rounded-md  border  border-[#DFE3FA] py-2 px-4 transition focus:outline-none focus:border-primary active:border-primary disabled:cursor-default placeholder:font-bold placeholder:text-sm placeholder:text-[15px] placeholder:tracking-[-0.25px];
+  @apply w-full rounded-md border border-[#DFE3FA] bg-transparent px-4 py-2 transition placeholder:text-sm placeholder:text-[15px] placeholder:font-bold placeholder:tracking-[-0.25px] focus:border-primary focus:outline-none active:border-primary disabled:cursor-default;
 }

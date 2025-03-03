@@ -1,0 +1,11 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["./src/**/*.{js,jsx,ts,tsx,html,css}"],
+      "options": {
+        "tailwindAttributes": ["className"]
+      }
+    }
+  ]
+}
