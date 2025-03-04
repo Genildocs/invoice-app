@@ -81,7 +81,7 @@ export default function Main() {
   }, [dropdownCheckBox, invoices]);
 
   return (
-    <main className="relative  min-h-full bg-secondary-light dark:bg-neutral-darkest  px-6 md:px-12 lg:px-44 py-5">
+    <main className="relative min-h-full bg-secondary-light dark:bg-neutral-darkest  px-6 md:px-12 lg:px-44 py-5">
       <section>
         <div className="lg:flex flex-col items-center">
           <div

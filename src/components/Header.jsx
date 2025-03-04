@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { cn } from "../utils";
-import { motion } from "motion/react";
-import { IoMdSunny } from "react-icons/io";
-import { IoMdMoon } from "react-icons/io";
-import { ThemeContext } from "../context/ThemeContext";
-import ImageAvatar from "../../public/images/image-avatar.jpg";
-import Logo from "../../public/images/logo.svg";
+import React, { useContext } from 'react';
+import { cn } from '../utils';
+import { motion } from 'motion/react';
+import { IoMdSunny } from 'react-icons/io';
+import { IoMdMoon } from 'react-icons/io';
+import { ThemeContext } from '../context/ThemeContext';
+import ImageAvatar from '../../public/images/image-avatar.jpg';
+import Logo from '../../public/images/logo.svg';
 export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -18,16 +18,19 @@ export default function Header() {
           </div>
 
           <button className="group size-5 cursor-pointer" onClick={toggleTheme}>
-           {theme === "light" ? (  <IoMdMoon
-              className={cn(
-                "fill-secondary-dark group-hover:fill-secondary-light size-full"
-              )}
-            />) :
-           ( <IoMdSunny
-              className={cn(
-                "fill-secondary-dark group-hover:fill-secondary-light size-full"
-              )}
-            />)}
+            {theme === 'light' ? (
+              <IoMdMoon
+                className={cn(
+                  'fill-secondary-dark size-full group-hover:fill-secondary-light '
+                )}
+              />
+            ) : (
+              <IoMdSunny
+                className={cn(
+                  'fill-secondary-dark group-hover:fill-secondary-light size-full'
+                )}
+              />
+            )}
           </button>
         </div>
         <div className="bg-secondary-dark h-full w-[1px] opacity-65" />

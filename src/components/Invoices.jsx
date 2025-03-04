@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { motion } from "motion/react";
-import { LocalStorageContext } from "../context/LocalStorageContext";
-import { cn } from "../utils";
-import { Link } from "react-router";
+import React, { useContext } from 'react';
+import { motion } from 'motion/react';
+import { LocalStorageContext } from '../context/LocalStorageContext';
+import { cn } from '../utils';
+import { Link } from 'react-router';
 export default function Invoices() {
   const { filterInvoices } = useContext(LocalStorageContext);
 
@@ -10,14 +10,13 @@ export default function Invoices() {
     <section className="mt-5">
       <ul className="flex flex-col items-center gap-2">
         {filterInvoices.map((invoice, index) => (
-          <Link to={`view-invoice/${invoice["id"].toLowerCase()}`} key={index}>
+          <Link to={`view-invoice/${invoice['id'].toLowerCase()}`} key={index}>
             <motion.li
               className={cn(
-                "dark:bg-primary-dark flex w-[20.5rem] justify-between rounded-lg border-[2px] border-solid bg-white p-5 lg:w-[45rem] dark:text-white",
+                'dark:bg-primary-dark flex w-[20.5rem] justify-between rounded-lg border-[2px] border-solid bg-white p-5 lg:w-[45rem] dark:text-white'
               )}
-              style={{ borderColor: "rgb(255,255,255,0)" }}
-              whileHover={{ borderColor: "rgb(124,93,250,0.9)" }}
-            >
+              style={{ borderColor: 'rgb(255,255,255,0)' }}
+              whileHover={{ borderColor: 'rgb(124,93,250,0.9)' }}>
               <div className="flex flex-col">
                 <span className="text-[15px] font-bold tracking-[-0.25px]">
                   #{invoice.id}
@@ -35,18 +34,17 @@ export default function Invoices() {
                 </p>
                 <div
                   className={cn(
-                    "text-green-status relative flex h-10 w-24 items-center justify-center rounded-lg bg-green-100",
-                    invoice.status === "pending" &&
-                      "bg-orange-100 text-orange-500",
-                    invoice.status === "draft" &&
-                      "bg-secondary-light text-secondary-dark",
-                  )}
-                >
+                    'text-green-status relative flex h-10 w-24 items-center justify-center rounded-lg bg-green-100',
+                    invoice.status === 'pending' &&
+                      'bg-orange-100 text-orange-500',
+                    invoice.status === 'draft' &&
+                      'bg-secondary-light text-secondary-dark '
+                  )}>
                   <div
                     className={cn(
-                      "bg-green-status mr-2 h-2 w-2 rounded-full",
-                      invoice.status === "pending" && "bg-orange-500",
-                      invoice.status === "draft" && "bg-secondary-dark",
+                      'bg-green-status mr-2 h-2 w-2 rounded-full',
+                      invoice.status === 'pending' && 'bg-orange-500',
+                      invoice.status === 'draft' && 'bg-secondary-dark'
                     )}
                   />
                   <span className="text-[15px] font-bold tracking-[-0.25px]">
