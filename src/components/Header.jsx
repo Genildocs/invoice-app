@@ -18,18 +18,16 @@ export default function Header() {
           </div>
 
           <button className="group size-5 cursor-pointer" onClick={toggleTheme}>
-            <IoMdMoon
+           {theme === "light" ? (  <IoMdMoon
               className={cn(
-                "fill-secondary-dark group-hover:fill-secondary-light size-full",
-                theme === "dark" && "hidden",
+                "fill-secondary-dark group-hover:fill-secondary-light size-full"
               )}
-            />
-            <IoMdSunny
+            />) :
+           ( <IoMdSunny
               className={cn(
-                "fill-secondary-dark group-hover:fill-secondary-light size-full",
-                theme === "light" && "hidden",
+                "fill-secondary-dark group-hover:fill-secondary-light size-full"
               )}
-            />
+            />)}
           </button>
         </div>
         <div className="bg-secondary-dark h-full w-[1px] opacity-65" />

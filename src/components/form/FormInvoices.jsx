@@ -29,8 +29,11 @@ export default function FormInvoices() {
           streetFrom: Yup.string().required('Required'),
           streetTo: Yup.string().required('Required'),
           city1: Yup.string().required('Required'),
+          city2: Yup.string().required('Required'),
           postCode1: Yup.string().required('Required'),
+          postCode2: Yup.string().required('Required'),
           country1: Yup.string().required('Required'),
+          country2: Yup.string().required('Required'),
           date: Yup.date().required('Required'),
         })}
         onSubmit={(values) => {
