@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { cn } from "../utils";
-import { motion } from "motion/react";
-import { Link, useParams } from "react-router";
-import { AiOutlineCaretLeft } from "react-icons/ai";
-import { LocalStorageContext } from "../context/LocalStorageContext";
-import BtnBack from "../components/ui/BtnBack.jsx";
+import React, { useContext, useEffect, useState } from 'react';
+import { cn } from '../utils';
+import { motion } from 'motion/react';
+import { Link, useParams } from 'react-router';
+import { AiOutlineCaretLeft } from 'react-icons/ai';
+import { LocalStorageContext } from '../context/LocalStorageContext';
+import BtnBack from '../components/ui/BtnBack.jsx';
+import Button from '../components/ui/Button.jsx';
 
 export default function ViewInvoice() {
   const { filterInvoices } = useContext(LocalStorageContext);
@@ -13,24 +14,24 @@ export default function ViewInvoice() {
 
   useEffect(() => {
     let findInvoice = filterInvoices.find(
-      (item) => item.id === params.id.toUpperCase(),
+      (item) => item.id === params.id.toUpperCase()
     );
 
     findInvoice = {
       ...findInvoice,
-      createdAt: new Date(findInvoice.createdAt).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        timeZone: "UTC",
+      createdAt: new Date(findInvoice.createdAt).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
       }),
       paymentDue:
-        "Due " +
-        new Date(findInvoice.paymentDue).toLocaleDateString("en-GB", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-          timeZone: "UTC",
+        'Due ' +
+        new Date(findInvoice.paymentDue).toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          timeZone: 'UTC',
         }),
     };
     setViewInvoice(findInvoice || {});
@@ -49,18 +50,17 @@ export default function ViewInvoice() {
             </span>
             <div
               className={cn(
-                "text-green-status relative flex h-10 w-24 items-center justify-center rounded-lg bg-green-100",
-                viewInvoice.status === "pending" &&
-                  "bg-orange-100 text-orange-500",
-                viewInvoice.status === "draft" &&
-                  "bg-secondary-light text-secondary-dark",
-              )}
-            >
+                'text-green-status relative flex h-10 w-24 items-center justify-center rounded-lg bg-green-100',
+                viewInvoice.status === 'pending' &&
+                  'bg-orange-100 text-orange-500',
+                viewInvoice.status === 'draft' &&
+                  'bg-secondary-light text-secondary-dark'
+              )}>
               <div
                 className={cn(
-                  "bg-green-status mr-2 h-2 w-2 rounded-full",
-                  viewInvoice.status === "pending" && "bg-orange-500",
-                  viewInvoice.status === "draft" && "bg-secondary-dark",
+                  'bg-green-status mr-2 h-2 w-2 rounded-full',
+                  viewInvoice.status === 'pending' && 'bg-orange-500',
+                  viewInvoice.status === 'draft' && 'bg-secondary-dark'
                 )}
               />
               <p className="headingS">{viewInvoice.status}</p>
@@ -130,14 +130,13 @@ export default function ViewInvoice() {
                     viewInvoice.items.map((item, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-between"
-                      >
+                        className="flex items-center justify-between">
                         <div>
                           <p className="text-[15px] font-bold tracking-[-0.25px]">
                             {item.name}
                           </p>
                           <span className="text-secondary-dark text-[15px] font-bold tracking-[-0.25px]">
-                            {item.quantity} x £{" "}
+                            {item.quantity} x £{' '}
                           </span>
                           <span className="text-secondary-dark text-[15px] font-bold tracking-[-0.25px]">
                             {item.price}
@@ -166,16 +165,23 @@ export default function ViewInvoice() {
         <Link to={`/edit-invoice/${params.id}`}>
           <motion.button
             className="dark:!bg-primary-darker h-12 w-[73px] rounded-3xl dark:hover:!bg-white"
-            style={{ backgroundColor: "#f9fafe" }}
-            whileHover={{ backgroundColor: "#dfe3fa" }}
-          >
+            style={{ backgroundColor: '#f9fafe' }}
+            whileHover={{ backgroundColor: '#dfe3fa' }}>
             <span className="headingS text-secondary-dark dark:text-white">
               Edit
             </span>
           </motion.button>
         </Link>
-        <div>btn-1</div>
-        <div>btn-1</div>
+        <div>
+          <Button className="bg-red-500 hover:bg-red-600 px-4 rounded-4xl tracking-[-0.25px]">
+            <span>Delete</span>
+          </Button>
+        </div>
+        <div>
+          <Button className="bg-primary-light hover:bg-primary px-4 rounded-4xl tracking-[-0.25px]">
+            <span>Mark as Paid</span>
+          </Button>
+        </div>
       </div>
     </section>
   );

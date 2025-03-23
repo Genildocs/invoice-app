@@ -13,6 +13,7 @@ export default function App() {
       <ThemeProvider>
         <Router basename="/">
           <Header />
+          {/* Layout */}
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="view-invoice/:id" element={<ViewInvoice />} />
